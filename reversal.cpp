@@ -5,13 +5,13 @@ using namespace std;
 //I will be reversing a string from user input and a prompt.
 
 string reversal(string input){
-    //reversed loop
-    string output;
-    int size = input.length() - 1;
-    for(int i = size; i >= 0; i--){
-        output += input[i];
+    //loop that swaps the first and last elements
+    string copy = input;
+    int size = copy.length() - 1;
+    for(int i = 0; i <= size/2; i++){
+        swap(copy[i],copy[size-i]);    
     }
-    return output;
+    return copy;
 }
 
 
