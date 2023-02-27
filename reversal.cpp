@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 //I will be reversing a string from user input and a prompt.
 
-string reversal(string input){
-    //push_back build string
-    string reverse;
+vector<char> reversal(string input){
+    //vector implementation, push_back
+    vector<char> reverse;
+
     for(int i = input.length()-1; i >= 0 ; i--){
         reverse.push_back(input[i]);
     }
@@ -20,6 +22,11 @@ int main(int argc, char *argv[]){
     string input;
     getline(cin, input);
 
-    string output = reversal(input);
-    cout << "Output from first reversal: " + output + "\n";
+    vector<char> output = reversal(input);
+    cout << "Output from reversal: ";
+    for(auto i: output){
+        cout << i;
+    }
+    cout << "\n";
+     
 }
