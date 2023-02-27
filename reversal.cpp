@@ -4,14 +4,13 @@ using namespace std;
 
 //I will be reversing a string from user input and a prompt.
 
-void reversal(string &input, int i){
-    //1 pointer, similar to recursion implementation, but psses only 1 additional argument
-    if(i > input.length() - 1 - i){
-        return;
+string reversal(string input){
+    //push_back build string
+    string reverse;
+    for(int i = input.length()-1; i >= 0 ; i--){
+        reverse.push_back(input[i]);
     }
-    swap(input[i],input[input.length() - i - 1]);
-    i++;
-    reversal(input, i);
+    return reverse;
 }
 
 
@@ -21,6 +20,6 @@ int main(int argc, char *argv[]){
     string input;
     getline(cin, input);
 
-    reversal(input, 0);
-    cout << "Output from first reversal: " + input + "\n";
+    string output = reversal(input);
+    cout << "Output from first reversal: " + output + "\n";
 }
