@@ -4,14 +4,14 @@ using namespace std;
 
 //I will be reversing a string from user input and a prompt.
 
-string reversal(string input){
-    //loop that swaps the first and last elements
-    string copy = input;
-    int size = copy.length() - 1;
-    for(int i = 0; i <= size/2; i++){
-        swap(copy[i],copy[size-i]);    
+void reversal(string &input, int n, int i){
+    //recursive function
+    if(n <= i){
+        return;
     }
-    return copy;
+    swap(input[i], input[n]);
+    reversal(input, n-1, i+1);
+
 }
 
 
@@ -21,6 +21,6 @@ int main(int argc, char *argv[]){
     string input;
     getline(cin, input);
 
-    string output = reversal(input);
-    cout << "Output from first reversal: " + output + "\n";
+    reversal(input, input.length()-1, 0);
+    cout << "Output from first reversal: " + input + "\n";
 }
